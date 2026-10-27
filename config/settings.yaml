@@ -1,0 +1,31 @@
+# Configurações do sistema de Extração de Informações Clínicas
+
+nlp:
+  # Modelo spaCy / scispaCy padrão
+  # Alternativas: en_core_sci_sm, en_core_sci_md, en_core_sci_lg
+  # Ou modelos clínicos do Hugging Face (ex: emilyalsentzer/Bio_ClinicalBERT)
+  model_name: "en_core_sci_sm"
+  
+  # Labels de entidades de interesse clínico
+  target_labels:
+    - DISEASE
+    - CHEMICAL
+    - MEDICATION
+    - SYMPTOM
+    - PROCEDURE
+    - ANATOMY
+    - DOSAGE
+
+preprocessing:
+  lowercase: true
+  remove_special_chars: false  # Manter caracteres médicos importantes
+  normalize_spaces: true
+
+pipeline:
+  enable_relation_extraction: false  # Ativar quando implementar
+  enable_entity_linking: false       # Ativar quando implementar (UMLS/SNOMED)
+
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  annotations: "data/annotations"

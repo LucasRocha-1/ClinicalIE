@@ -1,0 +1,100 @@
+[
+  {
+    "original_text": "\n        Paciente de 58 anos, sexo masculino, apresentou-se com dor torácica e dispneia.\n        Diagnóstico de Infarto Agudo do Miocárdio. Iniciado AAS 100mg e Clopidogrel 75mg.\n        Realizado cateterismo cardíaco. PA 140x90 mmHg.\n        ",
+    "cleaned_text": "paciente de 58 anos, sexo masculino, apresentou-se com dor torácica e dispneia. diagnóstico de infarto agudo do miocárdio. iniciado aas 100mg e clopidogrel 75mg. realizado cateterismo cardíaco. pa 140x90 mmhg.",
+    "normalized_text": "paciente de 58 anos, sexo masculino, apresentou-se com dor torácica e dispneia. diagnóstico de infarto agudo do miocárdio. iniciado acido acetilsalicilico 100 mg e clopidogrel 75 mg. realizado cateterismo cardíaco. pressao arterial 140x90 mmHg.",
+    "entities": [
+      {
+        "text": "58 anos",
+        "label": "DURATION",
+        "start": 12,
+        "end": 19,
+        "groups": [],
+        "source": "rule_based"
+      },
+      {
+        "text": "100 mg",
+        "label": "DOSAGE",
+        "start": 155,
+        "end": 161,
+        "groups": [],
+        "source": "rule_based"
+      },
+      {
+        "text": "75 mg",
+        "label": "DOSAGE",
+        "start": 176,
+        "end": 181,
+        "groups": [],
+        "source": "rule_based"
+      },
+      {
+        "text": "pressao arterial 140x90 mmHg",
+        "label": "BLOOD_PRESSURE",
+        "start": 215,
+        "end": 243,
+        "groups": [],
+        "source": "rule_based"
+      }
+    ],
+    "relations": [],
+    "metadata": {
+      "num_entities": 4,
+      "entity_types": [
+        "BLOOD_PRESSURE",
+        "DOSAGE",
+        "DURATION"
+      ],
+      "num_relations": 0
+    }
+  },
+  {
+    "original_text": "\n        Paciente feminina, 72 anos, portadora de HAS e DM2. \n        Queixa de cefaleia e tontura. Glicemia de jejum 180 mg/dl.\n        Prescrito Metformina 850mg 2x/dia.\n        ",
+    "cleaned_text": "paciente feminina, 72 anos, portadora de has e dm2. queixa de cefaleia e tontura. glicemia de jejum 180 mg/dl. prescrito metformina 850mg 2x/dia.",
+    "normalized_text": "paciente feminina, 72 anos, portadora de hipertensao arterial sistemica e diabetes mellitus tipo 2. queixa de cefaleia e tontura. glicemia de jejum 180 mg/dl. prescrito metformina 850 mg 2x/dia.",
+    "entities": [
+      {
+        "text": "72 anos",
+        "label": "DURATION",
+        "start": 19,
+        "end": 26,
+        "groups": [],
+        "source": "rule_based"
+      },
+      {
+        "text": "180 mg",
+        "label": "DOSAGE",
+        "start": 148,
+        "end": 154,
+        "groups": [],
+        "source": "rule_based"
+      },
+      {
+        "text": "850 mg",
+        "label": "DOSAGE",
+        "start": 180,
+        "end": 186,
+        "groups": [],
+        "source": "rule_based"
+      },
+      {
+        "text": "2x/dia",
+        "label": "FREQUENCY",
+        "start": 187,
+        "end": 193,
+        "groups": [],
+        "source": "rule_based"
+      }
+    ],
+    "relations": [],
+    "metadata": {
+      "num_entities": 4,
+      "entity_types": [
+        "DOSAGE",
+        "DURATION",
+        "FREQUENCY"
+      ],
+      "num_relations": 0
+    }
+  }
+]
