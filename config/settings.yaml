@@ -22,7 +22,7 @@ preprocessing:
   normalize_spaces: true
 
 pipeline:
-  enable_relation_extraction: false  # Ativar quando implementar
+  enable_relation_extraction: true
   enable_entity_linking: false       # Ativar quando implementar (UMLS/SNOMED)
 
 paths:

@@ -26,16 +26,19 @@ class ClinicalNER:
         model_name: str = "en_core_sci_sm",
         target_labels: Optional[List[str]] = None,
     ):
+        self.target_labels = set(target_labels) if target_labels else None
+
         try:
             self.nlp = spacy.load(model_name)
+            return
         except OSError:
             print(f"[Aviso] Modelo '{model_name}' não encontrado. "
-                  f"Usando 'en_core_web_sm' como fallback.")
-            print("Instale o modelo científico com: "
-                  "pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz")
-            self.nlp = spacy.load("en_core_web_sm")
+                  "Usando um modelo vazio em inglês como fallback.")
 
-        self.target_labels = set(target_labels) if target_labels else None
+        try:
+            self.nlp = spacy.load("en_core_web_sm")
+        except OSError:
+            self.nlp = spacy.blank("en")
 
     def extract(self, text: str) -> List[Dict[str, Any]]:
         """

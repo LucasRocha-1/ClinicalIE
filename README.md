@@ -48,7 +48,11 @@ ClinicalIE/
 
 4. **Rodar testes**
    ```bash
-   pytest tests/ -v
+   python -m pytest tests/ -v
+   ```
+   No Windows, se estiver usando o Python 3.12:
+   ```powershell
+   py -3.12 -m pytest tests/ -v
    ```
 
 ## Fine-tuning de NER com anotações próprias
@@ -89,5 +93,3 @@ para o caminho salvo (por exemplo, `models/clinical_ner`).
 | `evaluate.py` | Métricas Precision/Recall/F1 | Básico |
 
 ---
-
-Projeto preparado para alterações e evolução contínua.

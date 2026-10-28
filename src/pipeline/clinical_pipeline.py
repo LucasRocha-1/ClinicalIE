@@ -11,7 +11,7 @@ from src.preprocessing.cleaner import ClinicalTextCleaner
 from src.preprocessing.normalizer import ClinicalNormalizer
 from src.extraction.ner import ClinicalNER
 from src.extraction.rule_based import RuleBasedExtractor
-# from src.extraction.relation_extractor import RelationExtractor
+from src.extraction.relation_extractor import RelationExtractor
 
 
 class ClinicalInformationExtractionPipeline:
@@ -44,9 +44,7 @@ class ClinicalInformationExtractionPipeline:
         )
         
         self.rule_extractor = RuleBasedExtractor()
-        
-        # Descomentar quando implementar:
-        # self.relation_extractor = RelationExtractor()
+        self.relation_extractor = RelationExtractor()
 
     def _load_config(self, config_path: Optional[str]) -> dict:
         if config_path is None:
@@ -77,10 +75,10 @@ class ClinicalInformationExtractionPipeline:
         # Combina e remove possíveis duplicatas simples
         all_entities = ner_entities + rule_entities
 
-        # 3. Relações (esqueleto)
+        # 3. Relações
         relations = []
-        # if self.config.get("pipeline", {}).get("enable_relation_extraction"):
-        #     relations = self.relation_extractor.extract(normalized, all_entities)
+        if self.config.get("pipeline", {}).get("enable_relation_extraction", False):
+            relations = self.relation_extractor.extract(normalized, all_entities)
 
         return {
             "original_text": text,

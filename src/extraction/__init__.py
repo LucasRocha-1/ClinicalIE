@@ -1,5 +1,5 @@
 from .ner import ClinicalNER
 from .rule_based import RuleBasedExtractor
-# from .relation_extractor import RelationExtractor  # Descomentar quando implementar
+from .relation_extractor import RelationExtractor
 
-__all__ = ["ClinicalNER", "RuleBasedExtractor"]
+__all__ = ["ClinicalNER", "RuleBasedExtractor", "RelationExtractor"]

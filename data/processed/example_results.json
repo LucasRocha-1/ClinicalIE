@@ -37,7 +37,88 @@
         "source": "rule_based"
       }
     ],
-    "relations": [],
+    "relations": [
+      {
+        "head": {
+          "text": "100 mg",
+          "label": "DOSAGE",
+          "start": 155,
+          "end": 161,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "tail": {
+          "text": "acido acetilsalicilico",
+          "label": "MEDICATION",
+          "start": 132,
+          "end": 154,
+          "source": "text_inference"
+        },
+        "relation": "has_dosage",
+        "distance": 1,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "75 mg",
+          "label": "DOSAGE",
+          "start": 176,
+          "end": 181,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "tail": {
+          "text": "acido acetilsalicilico",
+          "label": "MEDICATION",
+          "start": 132,
+          "end": 154,
+          "source": "text_inference"
+        },
+        "relation": "has_dosage",
+        "distance": 22,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "clopidogrel",
+          "label": "MEDICATION",
+          "start": 164,
+          "end": 175,
+          "source": "text_inference"
+        },
+        "tail": {
+          "text": "100 mg",
+          "label": "DOSAGE",
+          "start": 155,
+          "end": 161,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "relation": "has_dosage",
+        "distance": 3,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "75 mg",
+          "label": "DOSAGE",
+          "start": 176,
+          "end": 181,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "tail": {
+          "text": "clopidogrel",
+          "label": "MEDICATION",
+          "start": 164,
+          "end": 175,
+          "source": "text_inference"
+        },
+        "relation": "has_dosage",
+        "distance": 1,
+        "source": "rule_based_relation"
+      }
+    ],
     "metadata": {
       "num_entities": 4,
       "entity_types": [
@@ -45,7 +126,7 @@
         "DOSAGE",
         "DURATION"
       ],
-      "num_relations": 0
+      "num_relations": 4
     }
   },
   {
@@ -86,7 +167,68 @@
         "source": "rule_based"
       }
     ],
-    "relations": [],
+    "relations": [
+      {
+        "head": {
+          "text": "metformina",
+          "label": "MEDICATION",
+          "start": 169,
+          "end": 179,
+          "source": "text_inference"
+        },
+        "tail": {
+          "text": "180 mg",
+          "label": "DOSAGE",
+          "start": 148,
+          "end": 154,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "relation": "has_dosage",
+        "distance": 15,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "850 mg",
+          "label": "DOSAGE",
+          "start": 180,
+          "end": 186,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "tail": {
+          "text": "metformina",
+          "label": "MEDICATION",
+          "start": 169,
+          "end": 179,
+          "source": "text_inference"
+        },
+        "relation": "has_dosage",
+        "distance": 1,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "2x/dia",
+          "label": "FREQUENCY",
+          "start": 187,
+          "end": 193,
+          "groups": [],
+          "source": "rule_based"
+        },
+        "tail": {
+          "text": "metformina",
+          "label": "MEDICATION",
+          "start": 169,
+          "end": 179,
+          "source": "text_inference"
+        },
+        "relation": "has_frequency",
+        "distance": 8,
+        "source": "rule_based_relation"
+      }
+    ],
     "metadata": {
       "num_entities": 4,
       "entity_types": [
@@ -94,7 +236,7 @@
         "DURATION",
         "FREQUENCY"
       ],
-      "num_relations": 0
+      "num_relations": 3
     }
   }
 ]

@@ -75,11 +75,21 @@ def test_pipeline_runs():
     pipeline = ClinicalInformationExtractionPipeline()
     text = "Paciente com dor torácica. Diagnóstico de IAM. AAS 100mg."
     result = pipeline.process(text)
-    
+
     assert "entities" in result
     assert "metadata" in result
     assert isinstance(result["entities"], list)
     assert result["metadata"]["num_entities"] >= 0
+
+
+def test_relation_extraction_detects_common_clinical_pairs():
+    pipeline = ClinicalInformationExtractionPipeline()
+    text = "Paciente com dor torácica. Prescrito AAS 100mg 1x/dia para IAM."
+    result = pipeline.process(text)
+
+    relation_labels = {item["relation"] for item in result["relations"]}
+    assert relation_labels
+    assert any("has_dosage" in label for label in relation_labels)
 
 
 if __name__ == "__main__":
