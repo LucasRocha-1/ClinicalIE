@@ -9,3 +9,4 @@ pyyaml
 tqdm
 pytest
 jupyter
+reportlab>=4.0.0

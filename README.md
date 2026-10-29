@@ -70,18 +70,46 @@ de caracteres no texto original; `end` é exclusivo. Cada anotação deve inclui
 {"text":"Sem sintomas no momento.","entities":[]}
 ```
 
-Treine a partir do modelo spaCy instalado e salve o modelo ajustado:
+O arquivo `data/annotations/train.jsonl` contém exemplos sintéticos para
+demonstração. Revise e substitua/complete essas anotações com dados
+representativos e validados por especialistas antes de qualquer uso clínico.
+Treine em uma pasta nova para preservar o modelo existente:
+O modelo base `models/clinical_ner` é baseado em `en_core_web_sm` (inglês);
+com anotações sintéticas em português, este comando valida apenas o fluxo
+técnico, não a adequação linguística.
 
 ```bash
-python -m src.models.train_ner --annotations data/annotations/train.jsonl --base-model en_core_web_sm --output models/clinical_ner --iterations 30
+python -m src.models.train_ner --annotations data/annotations/train.jsonl --base-model models/clinical_ner --output models/clinical_ner_demo --iterations 20
 ```
+
+Avalie Precision, Recall e F1 em outro arquivo anotado, separado do treinamento:
+
+```bash
+python -m src.models.evaluate --model models/clinical_ner_demo --annotations data/annotations/evaluation_synthetic.jsonl
+```
+
+Cada execução gera também `reports/ner_evaluation_report.pdf` com métricas
+gerais e por classe, contagens TP/FP/FN e os dados de identificação da avaliação.
+Para escolher outro destino, use `--report caminho/do/relatorio.pdf`.
+
+O avaliador agrega os resultados documento a documento, evitando misturar spans
+com offsets iguais em textos diferentes, e mostra métricas micro e por classe.
+Use correspondência parcial apenas como diagnóstico complementar:
+`--match-type partial`. Para comparar modelos, mantenha o mesmo conjunto
+independente; não use os dados de treino para reportar desempenho.
+No conjunto sintético incluído (12 textos), a execução de referência do modelo
+demonstrativo obteve Precision/Recall/F1 micro de 0,50/0,50/0,50; o modelo-base,
+0/0/0. Esses números são apenas uma verificação reproduzível do exemplo
+sintético, não uma estimativa de desempenho em dados clínicos reais.
 
 Para iniciar um modelo spaCy vazio em vez de ajustar um pré-treinado, use
 `--base-model blank:pt`. O treinamento verifica offsets inválidos, entidades
-sobrepostas e alinhamento aos tokens; corrija esses dados antes de treinar.
-O modelo final é salvo no diretório indicado por `--output`.
-Para usá-lo no pipeline, ajuste `nlp.model_name` em `config/settings.yaml`
-para o caminho salvo (por exemplo, `models/clinical_ner`).
+sobrepostas e alinhamento aos tokens; corrija esses dados antes de treinar. O
+modelo final é salvo no diretório indicado por `--output`. O corpus incluído é
+pequeno, sintético e não serve para medir desempenho real; o modelo resultante
+não está validado para uso clínico. Para usá-lo no pipeline, ajuste
+`nlp.model_name` em `config/settings.yaml` para o caminho salvo somente após
+avaliação com um conjunto independente e representativo.
 
 ## Componentes principais
 
@@ -93,8 +121,8 @@ para o caminho salvo (por exemplo, `models/clinical_ner`).
 | `RuleBasedExtractor` | Dosagens, PA, frequências por regex | Pronto |
 | `RelationExtractor` | Relações clínicas por tipos e proximidade textual | Pronto |
 | `EntityLinker` | Ligação a conceitos e sinônimos UMLS locais | Pronto (vocabulário limitado) |
-| `train_ner.py` | Fine-tuning de modelos | Esqueleto |
-| `evaluate.py` | Métricas Precision/Recall/F1 | Básico |
+| `train_ner.py` | Fine-tuning de NER spaCy | Pronto |
+| `evaluate.py` | Avaliação NER micro e por classe | Pronto |
 
 As extrações de relações e entity linking ficam habilitadas em
 `config/settings.yaml`. As entidades retornadas incluem `linked` com CUI,

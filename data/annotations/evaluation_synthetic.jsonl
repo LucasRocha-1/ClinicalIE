@@ -1,0 +1,12 @@
+{"text": "Paciente em acompanhamento por câncer de mama.", "entities": [{"start": 31, "end": 45, "label": "DISEASE"}]}
+{"text": "História prévia de epilepsia.", "entities": [{"start": 19, "end": 28, "label": "DISEASE"}]}
+{"text": "Diagnóstico confirmado: artrite reumatoide.", "entities": [{"start": 24, "end": 42, "label": "DISEASE"}]}
+{"text": "Evoluiu com palpitações durante a noite.", "entities": [{"start": 12, "end": 23, "label": "SYMPTOM"}]}
+{"text": "Refere vômitos após as refeições.", "entities": [{"start": 7, "end": 14, "label": "SYMPTOM"}]}
+{"text": "Relata prurido nos braços.", "entities": [{"start": 7, "end": 14, "label": "SYMPTOM"}]}
+{"text": "Mantém uso regular de rivaroxabana.", "entities": [{"start": 22, "end": 34, "label": "MEDICATION"}]}
+{"text": "Iniciada terapia com carvedilol.", "entities": [{"start": 21, "end": 31, "label": "MEDICATION"}]}
+{"text": "Dose habitual de levotiroxina mantida.", "entities": [{"start": 17, "end": 29, "label": "MEDICATION"}]}
+{"text": "Agendado teste ergométrico para amanhã.", "entities": [{"start": 9, "end": 26, "label": "PROCEDURE"}]}
+{"text": "Submetido a colonoscopia nesta manhã.", "entities": [{"start": 12, "end": 24, "label": "PROCEDURE"}]}
+{"text": "Solicitada biópsia da lesão.", "entities": [{"start": 11, "end": 18, "label": "PROCEDURE"}]}

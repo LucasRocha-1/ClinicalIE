@@ -127,6 +127,7 @@ def train_spacy_ner(
     if not any(record["entities"] for record in train_data):
         raise ValueError("As anotacoes precisam conter ao menos uma entidade.")
 
+    spacy.util.fix_random_seed(seed)
     is_blank_model = model_name.startswith("blank:")
     nlp = (
         spacy.blank(model_name.removeprefix("blank:"))

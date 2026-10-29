@@ -1,2 +1,62 @@
 {"text":"Paciente com IAM.","entities":[{"start":13,"end":16,"label":"DISEASE"}]}
 {"text":"Sem sintomas no momento.","entities":[]}
+{"text": "Diagn\u00f3stico registrado: diabetes mellitus tipo 2.", "entities": [{"start": 24, "end": 48, "label": "DISEASE"}]}
+{"text": "Paciente tem hist\u00f3rico de hipertens\u00e3o arterial.", "entities": [{"start": 26, "end": 46, "label": "DISEASE"}]}
+{"text": "O diagn\u00f3stico \u00e9 infarto agudo do mioc\u00e1rdio.", "entities": [{"start": 16, "end": 42, "label": "DISEASE"}]}
+{"text": "Presen\u00e7a de insufici\u00eancia card\u00edaca.", "entities": [{"start": 12, "end": 34, "label": "DISEASE"}]}
+{"text": "Diagn\u00f3stico registrado: asma.", "entities": [{"start": 24, "end": 28, "label": "DISEASE"}]}
+{"text": "Paciente tem hist\u00f3rico de pneumonia.", "entities": [{"start": 26, "end": 35, "label": "DISEASE"}]}
+{"text": "O diagn\u00f3stico \u00e9 doen\u00e7a renal cr\u00f4nica.", "entities": [{"start": 16, "end": 36, "label": "DISEASE"}]}
+{"text": "Presen\u00e7a de fibrila\u00e7\u00e3o atrial.", "entities": [{"start": 12, "end": 29, "label": "DISEASE"}]}
+{"text": "Diagn\u00f3stico registrado: anemia ferropriva.", "entities": [{"start": 24, "end": 41, "label": "DISEASE"}]}
+{"text": "Paciente tem hist\u00f3rico de doen\u00e7a pulmonar obstrutiva cr\u00f4nica.", "entities": [{"start": 26, "end": 60, "label": "DISEASE"}]}
+{"text": "Queixa de dor tor\u00e1cica.", "entities": [{"start": 10, "end": 22, "label": "SYMPTOM"}]}
+{"text": "Paciente relata dispneia.", "entities": [{"start": 16, "end": 24, "label": "SYMPTOM"}]}
+{"text": "Apresenta cefaleia.", "entities": [{"start": 10, "end": 18, "label": "SYMPTOM"}]}
+{"text": "Refere tontura desde ontem.", "entities": [{"start": 7, "end": 14, "label": "SYMPTOM"}]}
+{"text": "Queixa de n\u00e1useas.", "entities": [{"start": 10, "end": 17, "label": "SYMPTOM"}]}
+{"text": "Paciente relata febre.", "entities": [{"start": 16, "end": 21, "label": "SYMPTOM"}]}
+{"text": "Apresenta tosse seca.", "entities": [{"start": 10, "end": 20, "label": "SYMPTOM"}]}
+{"text": "Refere fadiga desde ontem.", "entities": [{"start": 7, "end": 13, "label": "SYMPTOM"}]}
+{"text": "Queixa de edema em membros inferiores.", "entities": [{"start": 10, "end": 37, "label": "SYMPTOM"}]}
+{"text": "Paciente relata dor abdominal.", "entities": [{"start": 16, "end": 29, "label": "SYMPTOM"}]}
+{"text": "Medica\u00e7\u00e3o em uso: AAS.", "entities": [{"start": 18, "end": 21, "label": "MEDICATION"}]}
+{"text": "Prescrito metformina.", "entities": [{"start": 10, "end": 20, "label": "MEDICATION"}]}
+{"text": "Paciente utiliza losartana diariamente.", "entities": [{"start": 17, "end": 26, "label": "MEDICATION"}]}
+{"text": "Foi administrado enalapril.", "entities": [{"start": 17, "end": 26, "label": "MEDICATION"}]}
+{"text": "Medica\u00e7\u00e3o em uso: sinvastatina.", "entities": [{"start": 18, "end": 30, "label": "MEDICATION"}]}
+{"text": "Prescrito omeprazol.", "entities": [{"start": 10, "end": 19, "label": "MEDICATION"}]}
+{"text": "Paciente utiliza insulina NPH diariamente.", "entities": [{"start": 17, "end": 29, "label": "MEDICATION"}]}
+{"text": "Foi administrado amoxicilina.", "entities": [{"start": 17, "end": 28, "label": "MEDICATION"}]}
+{"text": "Medica\u00e7\u00e3o em uso: furosemida.", "entities": [{"start": 18, "end": 28, "label": "MEDICATION"}]}
+{"text": "Prescrito dipirona.", "entities": [{"start": 10, "end": 18, "label": "MEDICATION"}]}
+{"text": "Procedimento solicitado: eletrocardiograma.", "entities": [{"start": 25, "end": 42, "label": "PROCEDURE"}]}
+{"text": "Realizado ecocardiograma.", "entities": [{"start": 10, "end": 24, "label": "PROCEDURE"}]}
+{"text": "Exame: radiografia de t\u00f3rax.", "entities": [{"start": 7, "end": 27, "label": "PROCEDURE"}]}
+{"text": "Paciente realizou tomografia computadorizada.", "entities": [{"start": 18, "end": 44, "label": "PROCEDURE"}]}
+{"text": "Procedimento solicitado: cateterismo card\u00edaco.", "entities": [{"start": 25, "end": 45, "label": "PROCEDURE"}]}
+{"text": "Realizado hemograma.", "entities": [{"start": 10, "end": 19, "label": "PROCEDURE"}]}
+{"text": "Exame: ultrassonografia abdominal.", "entities": [{"start": 7, "end": 33, "label": "PROCEDURE"}]}
+{"text": "Paciente realizou endoscopia digestiva alta.", "entities": [{"start": 18, "end": 43, "label": "PROCEDURE"}]}
+{"text": "Procedimento solicitado: resson\u00e2ncia magn\u00e9tica.", "entities": [{"start": 25, "end": 46, "label": "PROCEDURE"}]}
+{"text": "Realizado exame de urina.", "entities": [{"start": 10, "end": 24, "label": "PROCEDURE"}]}
+{"text": "Paciente segue em acompanhamento por esclerose m\u00faltipla.", "entities": [{"start": 37, "end": 55, "label": "DISEASE"}]}
+{"text": "Antecedente pessoal de hipotireoidismo.", "entities": [{"start": 23, "end": 38, "label": "DISEASE"}]}
+{"text": "Tratamento atual para doen\u00e7a de Crohn.", "entities": [{"start": 22, "end": 37, "label": "DISEASE"}]}
+{"text": "Em investiga\u00e7\u00e3o de l\u00fapus eritematoso.", "entities": [{"start": 19, "end": 36, "label": "DISEASE"}]}
+{"text": "Sem evid\u00eancia de tuberculose ativa.", "entities": [{"start": 17, "end": 28, "label": "DISEASE"}]}
+{"text": "Evoluiu com parestesia nas m\u00e3os.", "entities": [{"start": 12, "end": 22, "label": "SYMPTOM"}]}
+{"text": "Refere calafrios ap\u00f3s as refei\u00e7\u00f5es.", "entities": [{"start": 7, "end": 16, "label": "SYMPTOM"}]}
+{"text": "Queixa de vis\u00e3o turva.", "entities": [{"start": 10, "end": 21, "label": "SYMPTOM"}]}
+{"text": "Apresentou s\u00edncope na madrugada.", "entities": [{"start": 11, "end": 18, "label": "SYMPTOM"}]}
+{"text": "Nega constipa\u00e7\u00e3o intestinal.", "entities": [{"start": 5, "end": 27, "label": "SYMPTOM"}]}
+{"text": "Mant\u00e9m uso regular de apixabana.", "entities": [{"start": 22, "end": 31, "label": "MEDICATION"}]}
+{"text": "Iniciada terapia com amlodipino.", "entities": [{"start": 21, "end": 31, "label": "MEDICATION"}]}
+{"text": "Dose habitual de prednisona mantida.", "entities": [{"start": 17, "end": 27, "label": "MEDICATION"}]}
+{"text": "Uso cont\u00ednuo de pantoprazol.", "entities": [{"start": 16, "end": 27, "label": "MEDICATION"}]}
+{"text": "Administrada primeira dose de cefalexina.", "entities": [{"start": 30, "end": 40, "label": "MEDICATION"}]}
+{"text": "Agendado holter de 24 horas para amanh\u00e3.", "entities": [{"start": 9, "end": 27, "label": "PROCEDURE"}]}
+{"text": "Submetido a angioplastia nesta manh\u00e3.", "entities": [{"start": 12, "end": 24, "label": "PROCEDURE"}]}
+{"text": "Solicitada densitometria \u00f3ssea.", "entities": [{"start": 11, "end": 30, "label": "PROCEDURE"}]}
+{"text": "Realizou espirometria no ambulat\u00f3rio.", "entities": [{"start": 9, "end": 21, "label": "PROCEDURE"}]}
+{"text": "Programada cirurgia de catarata.", "entities": [{"start": 11, "end": 31, "label": "PROCEDURE"}]}
