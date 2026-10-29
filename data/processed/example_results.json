@@ -10,7 +10,8 @@
         "start": 12,
         "end": 19,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
       },
       {
         "text": "100 mg",
@@ -18,7 +19,8 @@
         "start": 155,
         "end": 161,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
       },
       {
         "text": "75 mg",
@@ -26,7 +28,8 @@
         "start": 176,
         "end": 181,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
       },
       {
         "text": "pressao arterial 140x90 mmHg",
@@ -34,25 +37,130 @@
         "start": 215,
         "end": 243,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
+      },
+      {
+        "text": "infarto agudo do miocárdio",
+        "label": "DISEASE",
+        "start": 95,
+        "end": 121,
+        "source": "clinical_lexicon",
+        "linked": {
+          "cui": "C0027051",
+          "name": "Myocardial Infarction",
+          "vocabulary": "UMLS",
+          "confidence": 1.0,
+          "match": "exact_or_synonym"
+        }
+      },
+      {
+        "text": "acido acetilsalicilico",
+        "label": "MEDICATION",
+        "start": 132,
+        "end": 154,
+        "source": "clinical_lexicon",
+        "linked": {
+          "cui": "C0004057",
+          "name": "Aspirin",
+          "vocabulary": "UMLS",
+          "confidence": 1.0,
+          "match": "exact_or_synonym"
+        }
+      },
+      {
+        "text": "clopidogrel",
+        "label": "MEDICATION",
+        "start": 164,
+        "end": 175,
+        "source": "clinical_lexicon",
+        "linked": null
       }
     ],
     "relations": [
       {
         "head": {
+          "text": "acido acetilsalicilico",
+          "label": "MEDICATION",
+          "start": 132,
+          "end": 154,
+          "source": "clinical_lexicon",
+          "linked": {
+            "cui": "C0004057",
+            "name": "Aspirin",
+            "vocabulary": "UMLS",
+            "confidence": 1.0,
+            "match": "exact_or_synonym"
+          }
+        },
+        "tail": {
+          "text": "infarto agudo do miocárdio",
+          "label": "DISEASE",
+          "start": 95,
+          "end": 121,
+          "source": "clinical_lexicon",
+          "linked": {
+            "cui": "C0027051",
+            "name": "Myocardial Infarction",
+            "vocabulary": "UMLS",
+            "confidence": 1.0,
+            "match": "exact_or_synonym"
+          }
+        },
+        "relation": "treats",
+        "distance": 11,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "clopidogrel",
+          "label": "MEDICATION",
+          "start": 164,
+          "end": 175,
+          "source": "clinical_lexicon",
+          "linked": null
+        },
+        "tail": {
+          "text": "infarto agudo do miocárdio",
+          "label": "DISEASE",
+          "start": 95,
+          "end": 121,
+          "source": "clinical_lexicon",
+          "linked": {
+            "cui": "C0027051",
+            "name": "Myocardial Infarction",
+            "vocabulary": "UMLS",
+            "confidence": 1.0,
+            "match": "exact_or_synonym"
+          }
+        },
+        "relation": "treats",
+        "distance": 43,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "acido acetilsalicilico",
+          "label": "MEDICATION",
+          "start": 132,
+          "end": 154,
+          "source": "clinical_lexicon",
+          "linked": {
+            "cui": "C0004057",
+            "name": "Aspirin",
+            "vocabulary": "UMLS",
+            "confidence": 1.0,
+            "match": "exact_or_synonym"
+          }
+        },
+        "tail": {
           "text": "100 mg",
           "label": "DOSAGE",
           "start": 155,
           "end": 161,
           "groups": [],
-          "source": "rule_based"
-        },
-        "tail": {
-          "text": "acido acetilsalicilico",
-          "label": "MEDICATION",
-          "start": 132,
-          "end": 154,
-          "source": "text_inference"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_dosage",
         "distance": 1,
@@ -60,19 +168,27 @@
       },
       {
         "head": {
+          "text": "acido acetilsalicilico",
+          "label": "MEDICATION",
+          "start": 132,
+          "end": 154,
+          "source": "clinical_lexicon",
+          "linked": {
+            "cui": "C0004057",
+            "name": "Aspirin",
+            "vocabulary": "UMLS",
+            "confidence": 1.0,
+            "match": "exact_or_synonym"
+          }
+        },
+        "tail": {
           "text": "75 mg",
           "label": "DOSAGE",
           "start": 176,
           "end": 181,
           "groups": [],
-          "source": "rule_based"
-        },
-        "tail": {
-          "text": "acido acetilsalicilico",
-          "label": "MEDICATION",
-          "start": 132,
-          "end": 154,
-          "source": "text_inference"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_dosage",
         "distance": 22,
@@ -84,7 +200,8 @@
           "label": "MEDICATION",
           "start": 164,
           "end": 175,
-          "source": "text_inference"
+          "source": "clinical_lexicon",
+          "linked": null
         },
         "tail": {
           "text": "100 mg",
@@ -92,7 +209,8 @@
           "start": 155,
           "end": 161,
           "groups": [],
-          "source": "rule_based"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_dosage",
         "distance": 3,
@@ -100,19 +218,21 @@
       },
       {
         "head": {
+          "text": "clopidogrel",
+          "label": "MEDICATION",
+          "start": 164,
+          "end": 175,
+          "source": "clinical_lexicon",
+          "linked": null
+        },
+        "tail": {
           "text": "75 mg",
           "label": "DOSAGE",
           "start": 176,
           "end": 181,
           "groups": [],
-          "source": "rule_based"
-        },
-        "tail": {
-          "text": "clopidogrel",
-          "label": "MEDICATION",
-          "start": 164,
-          "end": 175,
-          "source": "text_inference"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_dosage",
         "distance": 1,
@@ -120,13 +240,16 @@
       }
     ],
     "metadata": {
-      "num_entities": 4,
+      "num_entities": 7,
       "entity_types": [
         "BLOOD_PRESSURE",
+        "DISEASE",
         "DOSAGE",
-        "DURATION"
+        "DURATION",
+        "MEDICATION"
       ],
-      "num_relations": 4
+      "num_relations": 6,
+      "num_linked_entities": 2
     }
   },
   {
@@ -140,7 +263,8 @@
         "start": 19,
         "end": 26,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
       },
       {
         "text": "180 mg",
@@ -148,7 +272,8 @@
         "start": 148,
         "end": 154,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
       },
       {
         "text": "850 mg",
@@ -156,7 +281,8 @@
         "start": 180,
         "end": 186,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
       },
       {
         "text": "2x/dia",
@@ -164,7 +290,38 @@
         "start": 187,
         "end": 193,
         "groups": [],
-        "source": "rule_based"
+        "source": "rule_based",
+        "linked": null
+      },
+      {
+        "text": "hipertensao arterial sistemica",
+        "label": "DISEASE",
+        "start": 41,
+        "end": 71,
+        "source": "clinical_lexicon",
+        "linked": {
+          "cui": "C0020538",
+          "name": "Hypertensive disease",
+          "vocabulary": "UMLS",
+          "confidence": 1.0,
+          "match": "exact_or_synonym"
+        }
+      },
+      {
+        "text": "diabetes mellitus tipo 2",
+        "label": "DISEASE",
+        "start": 74,
+        "end": 98,
+        "source": "clinical_lexicon",
+        "linked": null
+      },
+      {
+        "text": "metformina",
+        "label": "MEDICATION",
+        "start": 169,
+        "end": 179,
+        "source": "clinical_lexicon",
+        "linked": null
       }
     ],
     "relations": [
@@ -174,7 +331,29 @@
           "label": "MEDICATION",
           "start": 169,
           "end": 179,
-          "source": "text_inference"
+          "source": "clinical_lexicon",
+          "linked": null
+        },
+        "tail": {
+          "text": "diabetes mellitus tipo 2",
+          "label": "DISEASE",
+          "start": 74,
+          "end": 98,
+          "source": "clinical_lexicon",
+          "linked": null
+        },
+        "relation": "treats",
+        "distance": 71,
+        "source": "rule_based_relation"
+      },
+      {
+        "head": {
+          "text": "metformina",
+          "label": "MEDICATION",
+          "start": 169,
+          "end": 179,
+          "source": "clinical_lexicon",
+          "linked": null
         },
         "tail": {
           "text": "180 mg",
@@ -182,7 +361,8 @@
           "start": 148,
           "end": 154,
           "groups": [],
-          "source": "rule_based"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_dosage",
         "distance": 15,
@@ -190,19 +370,21 @@
       },
       {
         "head": {
+          "text": "metformina",
+          "label": "MEDICATION",
+          "start": 169,
+          "end": 179,
+          "source": "clinical_lexicon",
+          "linked": null
+        },
+        "tail": {
           "text": "850 mg",
           "label": "DOSAGE",
           "start": 180,
           "end": 186,
           "groups": [],
-          "source": "rule_based"
-        },
-        "tail": {
-          "text": "metformina",
-          "label": "MEDICATION",
-          "start": 169,
-          "end": 179,
-          "source": "text_inference"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_dosage",
         "distance": 1,
@@ -210,19 +392,21 @@
       },
       {
         "head": {
+          "text": "metformina",
+          "label": "MEDICATION",
+          "start": 169,
+          "end": 179,
+          "source": "clinical_lexicon",
+          "linked": null
+        },
+        "tail": {
           "text": "2x/dia",
           "label": "FREQUENCY",
           "start": 187,
           "end": 193,
           "groups": [],
-          "source": "rule_based"
-        },
-        "tail": {
-          "text": "metformina",
-          "label": "MEDICATION",
-          "start": 169,
-          "end": 179,
-          "source": "text_inference"
+          "source": "rule_based",
+          "linked": null
         },
         "relation": "has_frequency",
         "distance": 8,
@@ -230,13 +414,16 @@
       }
     ],
     "metadata": {
-      "num_entities": 4,
+      "num_entities": 7,
       "entity_types": [
+        "DISEASE",
         "DOSAGE",
         "DURATION",
-        "FREQUENCY"
+        "FREQUENCY",
+        "MEDICATION"
       ],
-      "num_relations": 3
+      "num_relations": 4,
+      "num_linked_entities": 1
     }
   }
 ]

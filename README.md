@@ -45,6 +45,10 @@ ClinicalIE/
    ```bash
    python main.py
    ```
+   No Windows, se estiver usando o Python 3.12:
+   ```powershell
+   py -3.12 main.py
+   ```
 
 4. **Rodar testes**
    ```bash
@@ -87,9 +91,17 @@ para o caminho salvo (por exemplo, `models/clinical_ner`).
 | `ClinicalNormalizer` | Expansão de abreviações médicas | Pronto (expansível) |
 | `ClinicalNER` | Named Entity Recognition (spaCy/scispaCy) | Pronto |
 | `RuleBasedExtractor` | Dosagens, PA, frequências por regex | Pronto |
-| `RelationExtractor` | Relações entre entidades | Esqueleto |
-| `EntityLinker` | Ligação a UMLS/SNOMED | Esqueleto |
+| `RelationExtractor` | Relações clínicas por tipos e proximidade textual | Pronto |
+| `EntityLinker` | Ligação a conceitos e sinônimos UMLS locais | Pronto (vocabulário limitado) |
 | `train_ner.py` | Fine-tuning de modelos | Esqueleto |
 | `evaluate.py` | Métricas Precision/Recall/F1 | Básico |
+
+As extrações de relações e entity linking ficam habilitadas em
+`config/settings.yaml`. As entidades retornadas incluem `linked` com CUI,
+nome canônico, vocabulário e confiança; quando não há correspondência, o valor
+é `null`. O entity linker usa um vocabulário local limitado (sem chamadas
+externas ou credenciais) e pode ser ampliado em
+`src/postprocessing/entity_linker.py`. As relações e entidades inferidas pelo
+vocabulário clínico são heurísticas, não substituem validação clínica.
 
 ---

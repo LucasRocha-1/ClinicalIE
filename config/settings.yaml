@@ -23,7 +23,10 @@ preprocessing:
 
 pipeline:
   enable_relation_extraction: true
-  enable_entity_linking: false       # Ativar quando implementar (UMLS/SNOMED)
+  enable_entity_linking: true
+
+entity_linking:
+  knowledge_base: "umls"  # Subconjunto local de conceitos e sinônimos UMLS
 
 paths:
   raw_data: "data/raw"

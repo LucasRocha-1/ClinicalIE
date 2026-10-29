@@ -1,48 +1,79 @@
 """
-Entity Linking: liga entidades extraídas a ontologias clínicas.
-Exemplos: UMLS, SNOMED-CT, CID-10, etc.
-
-Este é um esqueleto. Implementações reais normalmente usam:
-    - APIs oficiais (UMLS Metathesaurus)
-    - Modelos de embedding + busca aproximada
-    - scispaCy EntityLinker
+Entity linking para um subconjunto local de conceitos clínicos UMLS.
 """
 
-from typing import List, Dict, Any, Optional
+import re
+import unicodedata
+from typing import Any, Dict, List, Optional
 
 
 class EntityLinker:
-    """
-    Esqueleto de Entity Linking.
-    
-    Objetivo futuro: mapear "infarto agudo do miocárdio" → CUI UMLS ou código SNOMED.
-    """
+    """Liga entidades a conceitos conhecidos sem exigir conexão ou credenciais externas."""
 
     def __init__(self, knowledge_base: str = "umls"):
-        self.knowledge_base = knowledge_base
-        # Placeholder: em produção carregaria índices ou conectaria a API
-        self._dummy_kb = {
-            "infarto agudo do miocardio": {"cui": "C0027051", "name": "Myocardial Infarction"},
-            "diabetes mellitus": {"cui": "C0011849", "name": "Diabetes Mellitus"},
-            "hipertensao arterial": {"cui": "C0020538", "name": "Hypertensive disease"},
+        if knowledge_base.casefold() != "umls":
+            raise ValueError("O EntityLinker local suporta apenas o vocabulário UMLS.")
+        self.knowledge_base = "umls"
+        self.concepts = {
+            "infarto agudo do miocardio": {
+                "cui": "C0027051",
+                "name": "Myocardial Infarction",
+                "aliases": ("iam", "infarto do miocardio"),
+            },
+            "diabetes mellitus": {
+                "cui": "C0011849",
+                "name": "Diabetes Mellitus",
+                "aliases": ("diabetes",),
+            },
+            "hipertensao arterial": {
+                "cui": "C0020538",
+                "name": "Hypertensive disease",
+                "aliases": (
+                    "hipertensao",
+                    "hipertensao arterial sistemica",
+                ),
+            },
+            "acido acetilsalicilico": {
+                "cui": "C0004057",
+                "name": "Aspirin",
+                "aliases": ("aas", "aspirina", "aspirin"),
+            },
         }
+        self._term_index = {
+            self._normalize(term): concept
+            for term, concept in self.concepts.items()
+        }
+        for concept in self.concepts.values():
+            for alias in concept["aliases"]:
+                self._term_index[self._normalize(alias)] = concept
+
+    @staticmethod
+    def _normalize(text: str) -> str:
+        normalized = unicodedata.normalize("NFKD", text.casefold())
+        normalized = "".join(
+            character
+            for character in normalized
+            if not unicodedata.combining(character)
+        )
+        return re.sub(r"\s+", " ", re.sub(r"[^\w\s]", " ", normalized)).strip()
 
     def link(self, entity_text: str) -> Optional[Dict[str, Any]]:
-        """
-        Tenta ligar uma entidade a um conceito da base de conhecimento.
-        
-        Returns:
-            Dicionário com identificador e nome canônico, ou None.
-        """
-        key = entity_text.lower().strip()
-        return self._dummy_kb.get(key)
+        """Retorna o conceito UMLS correspondente ou None quando não há correspondência."""
+        concept = self._term_index.get(self._normalize(entity_text))
+        if concept is None:
+            return None
+
+        return {
+            "cui": concept["cui"],
+            "name": concept["name"],
+            "vocabulary": self.knowledge_base.upper(),
+            "confidence": 1.0,
+            "match": "exact_or_synonym",
+        }
 
     def link_entities(self, entities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Adiciona informação de linking às entidades."""
-        enriched = []
-        for ent in entities:
-            linked = self.link(ent["text"])
-            new_ent = ent.copy()
-            new_ent["linked"] = linked
-            enriched.append(new_ent)
-        return enriched
+        """Adiciona o conceito correspondente a cada entidade sem alterar a entrada."""
+        return [
+            {**entity, "linked": self.link(entity["text"])}
+            for entity in entities
+        ]
